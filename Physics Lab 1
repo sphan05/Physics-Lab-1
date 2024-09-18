@@ -1,0 +1,46 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Data for thickness measurements
+caliper_single_thickcness = 0.150
+caliper_single_error = 0.025
+caliper_stack_thickness = 0.107
+caliper_stack_error = 0.00027
+
+micrometer_single_thickness = 0.111
+micrometer_single_error = 0.005
+micrometer_stack_thickness = 0.118
+micrometer_stack_error = 0.00005
+
+# Data for weight measurements
+digital_scale_weight = 5.1
+digital_scale_error = 0.1
+balance_beam_weight = 5.127
+balance_beam_error = 0.005
+
+# Creating subplots for thickness and weight measurements
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+# Thickness measurement graph
+instruments = ["Caliper (Single)', 'Caliper (Stack)', 'Micrometer (Single)', 'Micrometer (Stack)']
+thickness_means = [caliper_single_thickness, caliper_stack_thickness, micrometer_single_thickness, micrometer_stack_thickness]
+thickness_errors = [caliper_single_error, caliper_stack_error, micrometer_single_error, micrometer_stack_error]
+
+ax1.bar(instruments, thickness_means, yerr=thickness_erros, capsize=5, color=['blue', 'organge', 'green', 'red'])
+ax1.set_title('Comparison of Paper Thickness by Measurement Method')
+ax1.set_ylabel('Thickness (mm)')
+ax1.set_ylim(0, 0.2)
+
+# Weight measurement graph
+instruments_weight = ["Digital Scale (Single)', "Balance Beam (Stack)']
+weights = [digital_scale_weight, balance_beam_weight]
+weight_errors = [digital_scale_error, balance_beam_error]
+
+ax2.bar(instruments_weight, weights, yerr+weight_errors, capsize=5, color=['blue', 'organge'])
+ax2.set_title('Comparison of Paper Weight by Measurement Method')
+ax2.set_ylabel('Weight (g)')
+ax2.set_ylim(4.9, 5.2)
+
+# Show the graphs
+plt.tight_layout()
+plt.show()
